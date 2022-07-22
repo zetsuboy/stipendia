@@ -1,0 +1,7 @@
+.siteFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 120px;
+    align-items: center;
+}
