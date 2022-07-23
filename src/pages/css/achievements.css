@@ -1,0 +1,46 @@
+.achievement {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: darkgray;
+    border-radius: 20px;
+    height: 92px;
+    margin-top: 40px;
+}
+
+.achievement label {
+    font-size: 30px;
+    margin-left: 20px;
+    width: 65%;
+}
+
+.achievement span {
+    font-size: 24px;
+    width: 18%;
+}
+
+.achievementsBlock {
+    display: flex;
+    flex-direction: column;
+    margin: 80px;
+}
+
+.achievementsBlock .firstLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.achievementsBlock select {
+    width: 150px;
+    height: 30px;
+}
+
+.achievementsBlock .downloadButton {
+    width: 150px;
+    height: 30px;
+    align-self: end;
+    margin-top: 50px;
+}

@@ -48,3 +48,46 @@
     font-size: 24px;
     width: 18%;
 }
+
+.imagesBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.modalButtonsBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.canselRequestButton {
+    width: 180px;
+    transition-duration: 0.2s;
+}
+
+.canselRequestButton::after {
+    content: "заявка отправлена";
+}
+
+.canselRequestButton:hover {
+    background: red;
+}
+
+.canselRequestButton:hover::after {
+    content: "отозвать заявку";
+}
+
+.modalConfirmationButtonsBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.modalConfirmationButtonsBlock .ConfirmationButton {
+    width: 80px;
+}

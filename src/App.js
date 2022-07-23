@@ -1,7 +1,10 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes, Link} from "react-router-dom";
+import {BrowserRouter, Route, Routes, Link, NotFoundRoute} from "react-router-dom";
 import MainPage from './pages/main';
 import GrantsPage from './pages/grants'
+import Achievements from "./pages/achievements";
+import Reports from "./pages/reports";
+import UndefinedPage from "./pages/undefinedPage";
 
 class App extends React.Component {
     render() {
@@ -10,8 +13,9 @@ class App extends React.Component {
                 <Routes>
                     <Route path='/' element={<MainPage/>} />
                     <Route path='/grants' element={<GrantsPage/>} />
-                    <Route path='/achievements' element={<MainPage/>} />
-                    <Route path='/reports' element={<MainPage/>} />
+                    <Route path='/achievements' element={<Achievements/>} />
+                    <Route path='/reports' element={<Reports/>} />
+                    <Route path='*' element={<UndefinedPage/>} />
                 </Routes>
             </BrowserRouter>)
     };

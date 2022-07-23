@@ -5,13 +5,13 @@ import RouteLabel from "./RouteLabel";
 class SiteFooter extends React.Component {
     render() {
         return(
-            <div className="siteFooter">
-                <label>сообщить об ошибке</label>
-                <label>стипендия</label>
-                <label>достижения</label>
-                <label>отчеты</label>
-                <label>пользовательское соглашение</label>
-            </div>
+            <footer className="siteFooter">
+                <RouteLabel RouteTitle="сообщить об ошибке" Route="" />
+                <RouteLabel RouteTitle="стипендии" Route="grants" />
+                <RouteLabel RouteTitle="достижения" Route="achievements" />
+                <RouteLabel RouteTitle="отчеты" Route="reports" />
+                <RouteLabel RouteTitle="пользовательское соглашение" Route="" />
+            </footer>
         )
     }
 }
