@@ -15,11 +15,17 @@ const requests = [{"title": "Название стипендии", "status": "с
     {"title": "Название стипендии", "status": "статус заявки", "date": "01.01.2020"},
     {"title": "Название стипендии", "status": "статус заявки", "date": "01.01.2020"}]
 
-class MyVerticallyCenteredModal extends React.Component {
+class GrantModal extends React.Component {
     constructor() {
         super();
-        this.state = {requestCancelWindowShow: false}
+        this.state = {requestCancelWindowShow: false, requestModalShow: false}
+        this.cancelRequestClick = this.cancelRequestClick.bind(this)
     }
+
+    cancelRequestClick() {
+        this.setState({requestModalShow: false})
+    }
+
     render() {
         return (
             <div>
@@ -46,7 +52,7 @@ class MyVerticallyCenteredModal extends React.Component {
                             <Button>скачать вложения</Button>
                             {this.props.requestSent
                                 ? <Button className='canselRequestButton' onClick={() => {this.setState({requestCancelWindowShow: true})}}></Button>
-                                : <Button>податься на стипендию</Button>}
+                                : <Button onClick={() => {this.setState({requestModalShow: true})}}>податься на стипендию</Button>}
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
@@ -67,8 +73,78 @@ class MyVerticallyCenteredModal extends React.Component {
                         </div>
                     </Modal.Body>
                 </Modal>
+                <GrantRequestModal show={this.state.requestModalShow} cancelRequestClick={this.cancelRequestClick}/>
             </div>
         );
+    }
+}
+
+class GrantRequestModal extends React.Component {
+    render() {
+        return(
+            <div>
+                <Modal
+                    show={this.props.show}
+                    size="xl"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered
+                    dialogClassName='modalRequestWindow'
+                >
+                    <Modal.Body>
+                        <h1>Податься на стипендию</h1>
+                        <h4>Заявитель несет ответственность за предоставление информации в соответствии с законодательством Российской Федерации и локальными нормативными актами ДВФУ</h4>
+                        <form>
+                            <h5>1. Скан паспорта (временное удостоверение личности)</h5>
+                            <input type='file' name='passport' placeholder='загрузить'/>
+                            <h5>2. Характеристика с указанием конкретных достижений за последние полгода</h5>
+                            <input type='file' name='achievements' placeholder='загрузить'/>
+                            <h5>3. Согласие на обработку персональных данных</h5>
+                            <input type='file' name='agreement' placeholder='загрузить'/>
+                            <h5>4. Выберите категорию</h5>
+                            <select>
+                                <option selected disabled hidden></option>
+                                <option>123</option>
+                            </select>
+                            <h5>5. Выберите достижения, соответствующие следующим критериям: </h5>
+                            <select multiple size='5'>
+                                <option selected disabled hidden></option>
+                                <option onMouseDown={(e) => {e.preventDefault();
+                                e.currentTarget.selected = !e.currentTarget.selected;
+                                e.currentTarget.parentElement.focus()}}>Достижение 1</option>
+                                <option onMouseDown={(e) => {e.preventDefault();
+                                    e.currentTarget.selected = !e.currentTarget.selected;
+                                    e.currentTarget.parentElement.focus()}}>Достижение 2</option>
+                                <option onMouseDown={(e) => {e.preventDefault();
+                                    e.currentTarget.selected = !e.currentTarget.selected;
+                                    e.currentTarget.parentElement.focus()}}>Достижение 3</option>
+                                <option onMouseDown={(e) => {e.preventDefault();
+                                    e.currentTarget.selected = !e.currentTarget.selected;
+                                    e.currentTarget.parentElement.focus()}}>Достижение 4</option>
+                                <option onMouseDown={(e) => {e.preventDefault();
+                                    e.currentTarget.selected = !e.currentTarget.selected;
+                                    e.currentTarget.parentElement.focus()}}>Достижение 5</option>
+                                <option onMouseDown={(e) => {e.preventDefault();
+                                    e.currentTarget.selected = !e.currentTarget.selected;
+                                    e.currentTarget.parentElement.focus()}}>Достижение 6</option>
+                            </select>
+                            <h5>5. Заявитель несет ответственность за достоверность предоставляемой информации в соответствии
+                                с Законодательством Российской Федерации и нормативными локальными актами ДВФУ</h5>
+                            <div className='checkboxBlock'>
+                                <input type='checkbox' name='userAgree' id='userAgree'/>
+                                <label for='userAgree'>подтверждаю</label>
+                            </div>
+                            <div className='requestModalButtonsBlock'>
+                                <Button>податься на стипендию</Button>
+                                <Button onClick={this.props.cancelRequestClick}>отмена</Button>
+                            </div>
+                        </form>
+                    </Modal.Body>
+                    <Modal.Footer>
+
+                    </Modal.Footer>
+                </Modal>
+            </div>
+        )
     }
 }
 
@@ -149,8 +225,8 @@ class GrantsPage extends React.Component {
             <div>
                 <SiteHeader/>
                 <GrantsBlock handleClick={this.openModalClick}/>
-                <MyVerticallyCenteredModal show={this.state.modalShow} handleClick={this.closeModalClick}
-                                           title={this.state.modalTitle} desc={this.state.modalDesc} requestSent={this.state.requestSent}/>
+                <GrantModal show={this.state.modalShow} handleClick={this.closeModalClick} title={this.state.modalTitle}
+                            desc={this.state.modalDesc} requestSent={this.state.requestSent}/>
                 <RequestsBlock/>
                 <SiteFooter/>
             </div>

@@ -91,3 +91,9 @@
 .modalConfirmationButtonsBlock .ConfirmationButton {
     width: 80px;
 }
+
+.requestModalButtonsBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
