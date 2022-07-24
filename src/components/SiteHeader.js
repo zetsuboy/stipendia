@@ -11,6 +11,7 @@ class SiteHeader extends React.Component{
                     <RouteLabel RouteTitle="стипендии" Route="grants" />
                     <RouteLabel RouteTitle="достижения" Route="achievements" />
                     <RouteLabel RouteTitle="отчеты" Route="reports" />
+                    <RouteLabel RouteTitle="аккаунт" Route={null} />
                 </header>
             </nav>
         );

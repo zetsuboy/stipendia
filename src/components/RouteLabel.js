@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 class RouteLabel extends React.Component {
     render() {
         return(
-            <Link to={"/" + this.props.Route}>{this.props.RouteTitle}</Link>
+            <Link className='rLink' to={"/" + this.props.Route}><a>{this.props.RouteTitle}</a></Link>
         )
     }
 }

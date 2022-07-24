@@ -1,20 +1,45 @@
+
 .grantsBlock {
     display: flex;
     flex-direction: row;
     justify-content: start;
     flex-wrap: wrap;
-    margin-top: 100px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-top: 250px;
+    margin-left: 93px;
+
+
 }
 
 .grantsItemBlock {
     display: flex;
     flex-direction: column;
-    background: dodgerblue;
-    width: 400px;
-    height: 400px;
-    margin: 25px;
+    background: #3B63AB;
+    width: 525px;
+    height: 500px;
+    border-radius: 20px;
+    color: white;
+    text-align: left;
+    margin-left: 30px;
+    margin-bottom: 40px;
+}
+
+.grantsItemBlock label{
+    text-transform: lowercase;
+    font-size: 56px;
+    line-height: 110%;
+    margin-top: 238px;
+    margin-left: 53px;
+
+    white-space: pre-line;
+}
+
+.grantsItemBlock span{
+    text-transform: lowercase;
+    font-size: 24px;
+    line-height: 120%;
+
+    margin-left: 53px;
+    margin-top: 28px;
 }
 
 .requestsBlock {
@@ -25,28 +50,44 @@
 }
 
 #myRequests {
-    font-size: 60px;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 110%;
+    text-transform: none;
+    font-family: "Nunito Sans";
+
+    margin-top: 160px;
 }
 
 .request {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: darkgray;
-    border-radius: 20px;
     height: 92px;
     margin-top: 40px;
+
+    background: #E6E6E6;
+    border-radius: 20px;
+
+    color: black;
 }
 
 .request label {
     font-size: 30px;
-    margin-left: 20px;
+    margin-left: 44px;
     width: 65%;
+
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    text-transform: none;
 }
 
 .request span {
     font-size: 24px;
     width: 18%;
+
+    text-transform: none;
 }
 
 .imagesBlock {

@@ -157,7 +157,10 @@ class GrantsItem extends React.Component {
         return(
             <div className='grantsItemBlock' onClick={event => this.props.handleClick(this.props.GrantsTitle,
                 this.props.GrantsDesc, this.state.requestSent)}>
-                <label>{this.props.GrantsTitle}</label>
+                <label>{this.props.GrantsTitle} <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.83301 20H39.1663" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.5 1.33301L39.1667 19.9997L20.5 38.6663" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg></label>
                 <span>{this.props.GrantsDesc}</span>
             </div>
         )

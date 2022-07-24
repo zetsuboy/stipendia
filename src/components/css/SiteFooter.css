@@ -3,5 +3,13 @@
     flex-direction: row;
     justify-content: space-around;
     height: 120px;
+    width: 100%;
     align-items: center;
+    text-transform: none;
+    text-decoration: none;
+    text-align: center;
+
+    margin-top: 179px;
+
+    margin-bottom: 99px;
 }
