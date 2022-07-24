@@ -4,8 +4,9 @@
     align-items: center;
     background: darkgray;
     border-radius: 20px;
-    height: 92px;
-    margin-top: 40px;
+    min-height: 92px;
+    margin-bottom: 40px;
+    width: 100%;
 }
 
 .achievement label {
@@ -39,8 +40,25 @@
 }
 
 .achievementsBlock .downloadButton {
-    width: 150px;
-    height: 30px;
     align-self: end;
     margin-top: 50px;
+}
+
+.achievements {
+    display: flex;
+    flex-direction: column;
+    border: solid 4px black;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-y: auto;
+    max-height: 400px;
+    margin-top: 20px;
+}
+
+.achievements #noAchievementsSpan {
+    margin-bottom: 40px;
+    font-size: 30px;
 }
