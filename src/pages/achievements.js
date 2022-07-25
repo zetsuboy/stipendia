@@ -24,15 +24,15 @@ class AchievementsItem extends React.Component {
 }
 
 class AchievementsBlock extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {searchText: "", filter: ""};
     }
     render() {
         return(
             <div className='achievementsBlock'>
                 <div className='firstLine'>
-                    <Button>+ Добавить достижение</Button>
+                    <Button onClick={this.props.openModalClick}>+ Добавить достижение</Button>
                     <div className='searchBar'>
                         <img/>
                         <input type='text' placeholder='Поиск..' onChange={(e) =>
@@ -62,12 +62,55 @@ class AchievementsBlock extends React.Component {
     }
 }
 
+class AchievementRequestModal extends React.Component {
+    render() {
+        return(
+            <div>
+                <Modal
+                    show={this.props.show}
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered
+                >
+                    <Modal.Header>
+                        <Button>x</Button>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <h1>Добавление достижения</h1>
+                        <h4>Заявитель несет ответственность за предоставление информации в соответствии с Законодательством Российской Федерации и нормативными локальными актами ДВФУ</h4>
+
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button>загрузить достижение</Button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
+        )
+    }
+}
+
 class Achievements extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {modalShow: false};
+        this.openRequestModal = this.openRequestModal.bind(this);
+        this.closeRequestModal = this.closeRequestModal.bind(this);
+    }
+
+    openRequestModal() {
+        this.setState({modalShow: true});
+    }
+
+    closeRequestModal() {
+        this.setState({modalShow: false});
+    }
+
     render(){
         return(
             <div>
                 <SiteHeader/>
-                <AchievementsBlock/>
+                <AchievementsBlock openModalClick={this.openRequestModal}/>
+                <AchievementRequestModal show={this.state.modalShow} closeModalClick={this.closeRequestModal}/>
                 <SiteFooter/>
             </div>
         )

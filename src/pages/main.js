@@ -3,6 +3,7 @@ import './css/main.css';
 import SiteFooter from '../components/SiteFooter';
 import SiteHeader from '../components/SiteHeader';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
 
 class SiteDescription extends React.Component {
     render() {
@@ -16,29 +17,32 @@ class SiteDescription extends React.Component {
     }
 }
 
-class ActivityItem extends React.Component {
-    render() {
-        return(
-            <div className="activityItemBlock">
-                <img className="activityImage" src={this.props.ImgSrc}/>
-                <label>{this.props.title} <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+function ActivityItem(props) {
+    let navigate = useNavigate();
+    const routeChange = () =>{
+        navigate(props.path);
+    }
+
+        return (
+            <div className="activityItemBlock" onClick={routeChange}>
+                <img className="activityImage" src={props.ImgSrc}/>
+                <label>{props.title} <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.83301 20H39.1663" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M20.5 1.33301L39.1667 19.9997L20.5 38.6663" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg></label>
-                {this.props.InDevelopment ?
+                {props.InDevelopment ?
                     <span>*в разработке</span> : null}
             </div>
         );
-    }
 }
 
 class SiteActivityBlock extends React.Component {
     render() {
         return(
             <div className="siteActivityBlock">
-                <ActivityItem className="ActivityNames" title="податься на стипендию" ImgSrc="./images/grants.png"/>
-                <ActivityItem className="ActivityNames" title="добавить достижение" ImgSrc="./images/achiev.png"/>
-                <ActivityItem className="ActivityNames" title="добавить отчет" ImgSrc="./images/reports.png" InDevelopment="true"/>
+                <ActivityItem className="ActivityNames" title="податься на стипендию" ImgSrc="./images/grants.png" path='/grants'/>
+                <ActivityItem className="ActivityNames" title="добавить достижение" ImgSrc="./images/achiev.png" path='/achievements'/>
+                <ActivityItem className="ActivityNames" title="добавить отчет" ImgSrc="./images/reports.png" path='/reports' InDevelopment="true"/>
             </div>
         );
     }

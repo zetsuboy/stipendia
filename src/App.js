@@ -5,11 +5,13 @@ import GrantsPage from './pages/grants'
 import Achievements from "./pages/achievements";
 import Reports from "./pages/reports";
 import UndefinedPage from "./pages/undefinedPage";
+import ScrollToTop from "./ScrollToTop";
 
 class App extends React.Component {
     render() {
         return (
             <BrowserRouter>
+                <ScrollToTop/>
                 <Routes>
                     <Route path='/' element={<MainPage/>} />
                     <Route path='/grants' element={<GrantsPage/>} />
