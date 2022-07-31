@@ -62,3 +62,9 @@
     margin-bottom: 40px;
     font-size: 30px;
 }
+
+#achModalForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

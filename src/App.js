@@ -5,6 +5,7 @@ import GrantsPage from './pages/grants'
 import Achievements from "./pages/achievements";
 import Reports from "./pages/reports";
 import UndefinedPage from "./pages/undefinedPage";
+import ApiTestPage from "./pages/apiTestPage";
 import ScrollToTop from "./ScrollToTop";
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
                     <Route path='/grants' element={<GrantsPage/>} />
                     <Route path='/achievements' element={<Achievements/>} />
                     <Route path='/reports' element={<Reports/>} />
+                    <Route path='/apiTestPage' element={<ApiTestPage/>} />
                     <Route path='*' element={<UndefinedPage/>} />
                 </Routes>
             </BrowserRouter>)
